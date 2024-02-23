@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var catalogo: ProductoViewModel = ProductoViewModel()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("\(catalogo.catalogo.productos[0].id)")
         }
         .padding()
     }
