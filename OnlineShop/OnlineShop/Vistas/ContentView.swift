@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var catalogo: ProductoViewModel = ProductoViewModel()
+    var catalogo = ProductoViewModel()
     var body: some View {
         VStack {
-            Text("\(catalogo.catalogo.productos[0].id)")
+            ForEach(catalogo.id) { numeroid in
+                Text(numeroid)
+            }
         }
         .padding()
     }
