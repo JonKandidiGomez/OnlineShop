@@ -8,12 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
-    var catalogo = ProductoViewModel()
+    //var catalogo = ProductoViewModel()
     var body: some View {
         VStack {
-            ForEach(catalogo.id) { numeroid in
+            /*ForEach(catalogo.id) { numeroid in
                 Text(numeroid)
+            }*/
+            Text("Hola ?")
+            TabView {
+                TestView()
+                    .badge(1)
+                    .tabItem {
+                        Label("Casa", systemImage: "hosue")
+                    }
+                OtraTestView()
+                    .badge(1)
+                    .tabItem {
+                        Label("Account", systemImage: "custom.person.fill")
+                    }
+                
             }
+             
         }
         .padding()
     }
