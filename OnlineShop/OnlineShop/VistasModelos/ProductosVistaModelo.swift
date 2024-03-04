@@ -7,7 +7,6 @@
 
 import Foundation
 
-@MainActor
 class ProductoViewModel: ObservableObject {
     @Published var catalogo:[Producto] = []
     
@@ -18,8 +17,7 @@ class ProductoViewModel: ObservableObject {
     func getProducts(){
             Task{
                 do{
-                    let producto = try await NetworkManager.shared.getProducts()
-                    self.catalogo.append(producto)
+                    self.catalogo = try await NetworkManager.shared.getProducts()
                 }catch{
                     
                     if let callError = error as? WEError {

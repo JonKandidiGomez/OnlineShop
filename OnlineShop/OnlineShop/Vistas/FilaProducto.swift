@@ -8,27 +8,20 @@
 import SwiftUI
 
 struct FilaProducto: View {
+    var producto: Producto
     var body: some View {
         HStack{
-            AsyncImage(url: URL(string:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"// url del JSON
+            AsyncImage(url: URL(string:producto.image
                                ))
             { image in
                 image.resizable().scaledToFit()
             } placeholder: {
             }.padding(.all, 20)
             VStack{
-                Text("Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops"
-                     //Titulo del producto
-                ).multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                HStack{
-                    Text("$" + String(109.95)).foregroundColor(.gray)
-                    Spacer()
-                }
+                Text(producto.title + "\n$ " + String(producto.price))
             }
         }.frame(height: 120)
     }
 }
 
-#Preview {
-    FilaProducto()
-}
+

@@ -13,7 +13,7 @@ class NetworkManager {
     
     private let baseUrl = "https://fakestoreapi.com/products"
     
-    func getProducts() async throws -> Producto{
+    func getProducts() async throws -> [Producto]{
         guard let completeUrl =  URL(string: baseUrl) else {
             throw WEError.invalidURL
         }
@@ -22,8 +22,9 @@ class NetworkManager {
        
         do{
             let decoder = JSONDecoder()
-            return try decoder.decode(Producto.self, from: data)
+            return try decoder.decode([Producto].self, from: data)
         }catch{
+            print("Estamos aqui")
             throw WEError.invalidData
         }
     }
