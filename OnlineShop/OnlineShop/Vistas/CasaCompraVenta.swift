@@ -9,13 +9,13 @@ import Foundation
 import SwiftUI
 
 
-struct TestView: View {
+struct CasaCompraVenta: View {
     var body: some View {
-        Text("Hello World!")
+        Text("CompraVenta")
     }
 }
 
 
 #Preview {
-    ContentView()
+    CasaCompraVenta()
 }

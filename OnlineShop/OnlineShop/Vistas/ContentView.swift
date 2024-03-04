@@ -16,17 +16,25 @@ struct ContentView: View {
             }*/
             Text("Hola ?")
             TabView {
-                TestView()
+                CasaCompraVenta()
+                    .tabItem {
+                        Image(systemName: "house").font(.system(size:250)).symbolRenderingMode(.multicolor)
+                        Text("Casa")
+                    }
+                Cuenta()
+                    .tabItem {
+                        Image(systemName: "person.fill").font(.system(size:250)).symbolRenderingMode(.multicolor)
+                        Text("Cuenta")
+                    }
+                CarritoCompra()
                     .badge(1)
                     .tabItem {
-                        Label("Casa", systemImage: "hosue")
+                        Image(systemName: "cart.fill").font(.system(size: 250))
+                            .symbolRenderingMode(.multicolor)
+                        Text("Carrito")
                     }
-                OtraTestView()
-                    .badge(1)
-                    .tabItem {
-                        Label("Account", systemImage: "custom.person.fill")
-                    }
-                
+            }.onAppear() {
+                UITabBar.appearance().backgroundColor = .gray
             }
              
         }
