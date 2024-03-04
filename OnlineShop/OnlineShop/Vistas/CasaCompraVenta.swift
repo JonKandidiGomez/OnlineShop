@@ -9,16 +9,17 @@ import Foundation
 import SwiftUI
 
 struct CasaCompraVenta: View {
+    
     var body: some View {
         NavigationView {
                     List {
                         ForEach(0..<5) { _ in
-                            // You can replace this with actual data or a loop based on your data source
-                            FilaProducto()
-                                .listRowInsets(EdgeInsets())
+                            FilaProducto().onTapGesture {
+                                print("Hola Mundo")
+                            }
                         }
                     }
-                    .navigationTitle("Product List")
+                    .navigationTitle("Lista de productos")
                 }
     }
 }

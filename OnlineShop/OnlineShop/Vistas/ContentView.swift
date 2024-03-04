@@ -14,7 +14,7 @@ struct ContentView: View {
             /*ForEach(catalogo.id) { numeroid in
                 Text(numeroid)
             }*/
-            Text("Hola ?")
+            Text("Online Shop").font(Font.custom("IMPACT", size: 32))
             TabView {
                 CasaCompraVenta()
                     .tabItem {
