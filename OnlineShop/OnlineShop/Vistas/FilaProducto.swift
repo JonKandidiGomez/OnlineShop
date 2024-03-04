@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RowList: View {
+struct FilaProducto: View {
     var body: some View {
         HStack{
             AsyncImage(url: URL(string:"https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"// url del JSON
@@ -30,5 +30,5 @@ struct RowList: View {
 }
 
 #Preview {
-    RowList()
+    FilaProducto()
 }
