@@ -18,7 +18,17 @@ struct FilaProducto: View {
             } placeholder: {
             }.padding(.all, 20)
             VStack{
-                Text(producto.title + "\n$ " + String(producto.price))
+                HStack{
+                    Text(producto.title)
+                    Spacer()
+                }
+                
+                HStack{
+                    Text("$" + String(producto.price)).foregroundStyle(.gray)
+                    Spacer()
+                }
+                
+                
             }
         }.frame(height: 120)
     }
