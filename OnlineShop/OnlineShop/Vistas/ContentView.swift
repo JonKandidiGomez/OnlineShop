@@ -21,7 +21,13 @@ struct ContentView: View {
                         Image(systemName: "house").font(.system(size:250)).symbolRenderingMode(.multicolor)
                         Text("Casa")
                     }
-                Cuenta()
+                VistaCuenta(nombre: "",
+                            apellido: "",
+                            email: "",
+                            fNacimiento: Date.now,
+                            esVIP: false,
+                            recibeOfertas: false,
+                             cuentaVistaModelo: CuentaVistaModelo())
                     .tabItem {
                         Image(systemName: "person.fill").font(.system(size:250)).symbolRenderingMode(.multicolor)
                         Text("Cuenta")
