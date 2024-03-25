@@ -13,6 +13,9 @@
 		02D634832B9F984300E412C5 /* VistaCompra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D634822B9F984300E412C5 /* VistaCompra.swift */; };
 		02D6B3022B8D293600A4D8CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D6B3012B8D293600A4D8CA /* NetworkManager.swift */; };
 		02D6B3042B8D29EB00A4D8CA /* WEError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D6B3032B8D29EB00A4D8CA /* WEError.swift */; };
+		02DCC5722BB1F1D100A60D5B /* VistaRating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC5712BB1F1D100A60D5B /* VistaRating.swift */; };
+		02DCC5752BB2030900A60D5B /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = 02DCC5742BB2030900A60D5B /* Cosmos */; };
+		02DCC5792BB20C8200A60D5B /* CarritoVistaModelo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02DCC5782BB20C8200A60D5B /* CarritoVistaModelo.swift */; };
 		C2B27F182B89341100D0B58B /* OnlineShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B27F172B89341100D0B58B /* OnlineShopApp.swift */; };
 		C2B27F1A2B89341100D0B58B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B27F192B89341100D0B58B /* ContentView.swift */; };
 		C2B27F1C2B89341200D0B58B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2B27F1B2B89341200D0B58B /* Assets.xcassets */; };
@@ -52,6 +55,8 @@
 		02D634822B9F984300E412C5 /* VistaCompra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaCompra.swift; sourceTree = "<group>"; };
 		02D6B3012B8D293600A4D8CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		02D6B3032B8D29EB00A4D8CA /* WEError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WEError.swift; sourceTree = "<group>"; };
+		02DCC5712BB1F1D100A60D5B /* VistaRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VistaRating.swift; sourceTree = "<group>"; };
+		02DCC5782BB20C8200A60D5B /* CarritoVistaModelo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarritoVistaModelo.swift; sourceTree = "<group>"; };
 		C2B27F142B89341100D0B58B /* OnlineShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnlineShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2B27F172B89341100D0B58B /* OnlineShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlineShopApp.swift; sourceTree = "<group>"; };
 		C2B27F192B89341100D0B58B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02DCC5752BB2030900A60D5B /* Cosmos in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +170,7 @@
 				C2F37C1E2B96469900CAB6D0 /* CarritoCompra.swift */,
 				0289E1662B964E3A0005C21E /* FilaProducto.swift */,
 				02D634822B9F984300E412C5 /* VistaCompra.swift */,
+				02DCC5712BB1F1D100A60D5B /* VistaRating.swift */,
 			);
 			path = Vistas;
 			sourceTree = "<group>";
@@ -173,6 +180,7 @@
 			children = (
 				C2B27F492B89377E00D0B58B /* ProductosVistaModelo.swift */,
 				02D634802B9F88AF00E412C5 /* CuentaVistaModelo.swift */,
+				02DCC5782BB20C8200A60D5B /* CarritoVistaModelo.swift */,
 			);
 			path = VistasModelos;
 			sourceTree = "<group>";
@@ -211,6 +219,9 @@
 			dependencies = (
 			);
 			name = OnlineShop;
+			packageProductDependencies = (
+				02DCC5742BB2030900A60D5B /* Cosmos */,
+			);
 			productName = OnlineShop;
 			productReference = C2B27F142B89341100D0B58B /* OnlineShop.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +296,7 @@
 			mainGroup = C2B27F0B2B89341000D0B58B;
 			packageReferences = (
 				C2C833C92B9F82CF00852B9A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				02DCC5732BB2030900A60D5B /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			productRefGroup = C2B27F152B89341100D0B58B /* Products */;
 			projectDirPath = "";
@@ -329,10 +341,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02DCC5792BB20C8200A60D5B /* CarritoVistaModelo.swift in Sources */,
 				C2F37C1B2B96460500CAB6D0 /* CasaCompraVenta.swift in Sources */,
 				0289E1672B964E3A0005C21E /* FilaProducto.swift in Sources */,
 				02D6B3042B8D29EB00A4D8CA /* WEError.swift in Sources */,
 				C2F37C1F2B96469A00CAB6D0 /* CarritoCompra.swift in Sources */,
+				02DCC5722BB1F1D100A60D5B /* VistaRating.swift in Sources */,
 				02D634832B9F984300E412C5 /* VistaCompra.swift in Sources */,
 				02D6B3022B8D293600A4D8CA /* NetworkManager.swift in Sources */,
 				02D6347F2B9F862900E412C5 /* CuentaUsuario.swift in Sources */,
@@ -667,6 +681,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		02DCC5732BB2030900A60D5B /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 25.0.1;
+			};
+		};
 		C2C833C92B9F82CF00852B9A /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -676,6 +698,14 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02DCC5742BB2030900A60D5B /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02DCC5732BB2030900A60D5B /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C2B27F0C2B89341000D0B58B /* Project object */;
 }

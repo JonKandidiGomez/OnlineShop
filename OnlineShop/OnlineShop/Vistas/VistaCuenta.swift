@@ -16,7 +16,7 @@ struct VistaCuenta: View {
     @AppStorage("nombre") var nombre: String = ""
     @AppStorage("apellido") var apellido: String = ""
     @AppStorage("email") var email: String = ""
-    @AppStorage("fecha") var fNacimiento: Date = 
+    //@AppStorage("fecha") var fNacimiento: Date =
     @AppStorage("vip") var esVIP: Bool = false
     @AppStorage("recibeOferta") var recibeOfertas: Bool = false
     @State var cuentaVistaModelo: CuentaVistaModelo
@@ -30,7 +30,7 @@ struct VistaCuenta: View {
                         TextField("Nombre", text: $nombre).disableAutocorrection(true)
                         TextField("Apellido", text: $apellido).disableAutocorrection(true)
                         TextField("Email", text: $email).disableAutocorrection(true)
-                        DatePicker("Fecha de nacimiento", selection: $fNacimiento, displayedComponents: .date)
+                        //DatePicker("Fecha de nacimiento", selection: $fNacimiento, displayedComponents: .date)
                         
                     }
                     Section("Configuración") {
@@ -41,7 +41,7 @@ struct VistaCuenta: View {
                     Button("Guardar cambios", action: {
                         //cuentaVistaModelo = CuentaVistaModelo(nombre: nombre, apellido: apellido,email: email, fNacimiento: fNacimiento, esVIP: esVIP, recibeOfertas: recibeOfertas)
                         //cuentaVistaModelo.leerArchivo()
-                        guardar.toggle()
+                        //guardar.toggle()
                         //cuentaVistaModelo.imprimirNombre()
                     })
                 
@@ -58,7 +58,7 @@ struct VistaCuenta: View {
     VistaCuenta(nombre: "",
            apellido: "",
            email: "",
-           fNacimiento: Date.now,
+           //fNacimiento: Date.now,
            esVIP: false,
            recibeOfertas: false,
             cuentaVistaModelo: CuentaVistaModelo())

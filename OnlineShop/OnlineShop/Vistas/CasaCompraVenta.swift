@@ -12,18 +12,17 @@ struct CasaCompraVenta: View {
     @ObservedObject var catalogo: ProductoViewModel = ProductoViewModel()
     var body: some View {
         NavigationView {
-                    List {
-                        ForEach(catalogo.catalogo) { producto in
-                            FilaProducto(producto: producto).onTapGesture {
-                                print(producto.title)
-                            }
-                        }
+            List {
+                ForEach(catalogo.catalogo) { producto in
+                    FilaProducto(producto: producto).onTapGesture {
+                        print(producto.title)
                     }
-                    .navigationTitle("Lista de productos")
                 }
+            }
+            .navigationTitle("Lista de productos")
+        }
     }
 }
-
 
 #Preview {
     CasaCompraVenta()
