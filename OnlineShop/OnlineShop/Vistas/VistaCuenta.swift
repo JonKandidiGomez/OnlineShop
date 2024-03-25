@@ -8,15 +8,19 @@
 import Foundation
 import SwiftUI
 
+class UserData: ObservableObject {
+    
+}
 
 struct VistaCuenta: View {
-    @State var nombre: String
-    @State var apellido: String
-    @State var email: String
-    @State var fNacimiento: Date
-    @State var esVIP: Bool
-    @State var recibeOfertas: Bool
+    @AppStorage("nombre") var nombre: String = ""
+    @AppStorage("apellido") var apellido: String = ""
+    @AppStorage("email") var email: String = ""
+    @AppStorage("fecha") var fNacimiento: Date = 
+    @AppStorage("vip") var esVIP: Bool = false
+    @AppStorage("recibeOferta") var recibeOfertas: Bool = false
     @State var cuentaVistaModelo: CuentaVistaModelo
+    
     
     var body: some View {
         VStack{
@@ -35,8 +39,10 @@ struct VistaCuenta: View {
 
                     }
                     Button("Guardar cambios", action: {
-                        cuentaVistaModelo = CuentaVistaModelo(nombre: nombre, apellido: apellido,email: email, fNacimiento: fNacimiento, esVIP: esVIP, recibeOfertas: recibeOfertas)
-                        cuentaVistaModelo.imprimirNombre()
+                        //cuentaVistaModelo = CuentaVistaModelo(nombre: nombre, apellido: apellido,email: email, fNacimiento: fNacimiento, esVIP: esVIP, recibeOfertas: recibeOfertas)
+                        //cuentaVistaModelo.leerArchivo()
+                        guardar.toggle()
+                        //cuentaVistaModelo.imprimirNombre()
                     })
                 
                 }

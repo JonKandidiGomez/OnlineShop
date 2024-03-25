@@ -6,7 +6,7 @@
 //
 
 
-import SwiftUI
+/*import SwiftUI
 import FirebaseCore
 
 
@@ -37,3 +37,4 @@ struct YourApp: App {
 #Preview {
     CarritoCompra()
 }
+*/

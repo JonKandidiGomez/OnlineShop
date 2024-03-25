@@ -18,11 +18,6 @@ struct CasaCompraVenta: View {
                                 print(producto.title)
                             }
                         }
-                        /*ForEach(0 ..< Int(catalogo.catalogo.count)) { num in
-                            FilaProducto().onTapGesture {
-                                print(catalogo.catalogo.count)
-                            }
-                        }*/
                     }
                     .navigationTitle("Lista de productos")
                 }
