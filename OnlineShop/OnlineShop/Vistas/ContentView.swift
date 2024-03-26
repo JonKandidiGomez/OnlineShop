@@ -28,6 +28,7 @@ struct ContentView: View {
                         Text("Cuenta")
                     }
                 CarritoCompra()
+                    .badge(1)
                     .tabItem {
                         Image(systemName: "cart.fill").font(.system(size: 250))
                             .symbolRenderingMode(.multicolor)

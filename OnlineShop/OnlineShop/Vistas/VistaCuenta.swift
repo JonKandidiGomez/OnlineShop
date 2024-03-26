@@ -16,7 +16,16 @@ struct VistaCuenta: View {
     @AppStorage("nombre") var nombre: String = ""
     @AppStorage("apellido") var apellido: String = ""
     @AppStorage("email") var email: String = ""
-    //@AppStorage("fecha") var fNacimiento: Date =
+    //@AppStorage("storedfNacimiento") var storedfNacimiento = Date.now.timeIntervalSinceReferenceDate
+    //@AppStorage("storedfNacimiento") var fNacimiento: Date = Date.now.timeIntervalSinceReferenceDate
+    /*var fNacimiento: Date{
+        set{
+            storedfNacimiento = newValue.timeIntervalSinceReferenceDate
+        }
+        get{
+            return Date(timeIntervalSinceReferenceDate: storedfNacimiento)
+        }
+    }*/
     @AppStorage("vip") var esVIP: Bool = false
     @AppStorage("recibeOferta") var recibeOfertas: Bool = false
     @State var cuentaVistaModelo: CuentaVistaModelo

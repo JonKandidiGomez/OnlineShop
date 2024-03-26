@@ -31,6 +31,21 @@ struct CarritoCompra: View {
                 .fontWeight(.semibold)
         }.padding(.bottom, 25)
     }
+import SwiftUI
+import FirebaseFirestore
+import FirebaseCore
+
+struct CarritoCompra: View {
+  @FirestoreQuery(
+    collectionPath: "productos",
+    predicates: [.where("done", isEqualTo: false)]
+  ) var productos: [Producto]
+
+  var body: some View {
+      List(productos) { producto in
+          Text(producto.title)
+      }
+  }
 }
 
 #Preview {
