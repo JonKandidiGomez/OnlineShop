@@ -11,23 +11,31 @@ class CuentaVistaModelo {
     
     var cuentaDeUsuario: CuentaUsuario
     
-    init(nombre:String, apellido:String, email:String, fNacimiento: Date, esVIP:Bool, recibeOfertas:Bool) {
-        self.cuentaDeUsuario = CuentaUsuario(nombre: nombre, apellido: apellido, email: email, fNacimiento: fNacimiento, esVIP: esVIP, recibeOfertas: recibeOfertas)
-        print("LLegue a l constructor")
-        UserDefaults.standard.set(nombre, forKey: "informacion")
-    }
+    init(nombre: String, apellido: String, email: String, fNacimiento: Date, esVIP: Bool, recibeOfertas: Bool) {
+            self.cuentaDeUsuario = CuentaUsuario(nombre: nombre, apellido: apellido, email: email, fNacimiento: fNacimiento, esVIP: esVIP, recibeOfertas: recibeOfertas)
+            print("LLegue a l constructor")
+            UserDefaults.standard.set(nombre, forKey: "informacion")
+        }
+        
     init() {
-        self.cuentaDeUsuario = CuentaUsuario(nombre: "", apellido: "", email: "", fNacimiento: Date.now, esVIP: false, recibeOfertas: false)
+        self.cuentaDeUsuario = CuentaUsuario(nombre: "", apellido: "", email: "", fNacimiento: Date(), esVIP: false, recibeOfertas: false)
     }
     
-    func leerArchivo() {
-        let algo = UserDefaults.standard.string(forKey: "informacion")
-        print(algo!)
+    func leerArchivo() -> CuentaUsuario? {
+        if let savedData = UserDefaults.standard.data(forKey: "cuentaUsuario") {
+            let decoder = JSONDecoder()
+            if let loadedCuenta = try? decoder.decode(CuentaUsuario.self, from: savedData) {
+                return loadedCuenta
+            }
+        }
+        return nil
     }
-    /*func guardarDatos(cuenta: CuentaUsuario) {
-        print("Llegue a el codigo de Jon")
-        self.cuentaDeUsuario = cuenta
-    }*/
     
-    
+    func guardarDatosLocalmente() {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(cuentaDeUsuario) {
+            UserDefaults.standard.set(encoded, forKey: "cuentaUsuario")
+        }
+    }
 }
+

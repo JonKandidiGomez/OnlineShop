@@ -16,20 +16,13 @@ struct VistaCuenta: View {
     @AppStorage("nombre") var nombre: String = ""
     @AppStorage("apellido") var apellido: String = ""
     @AppStorage("email") var email: String = ""
-    //@AppStorage("storedfNacimiento") var storedfNacimiento = Date.now.timeIntervalSinceReferenceDate
-    //@AppStorage("storedfNacimiento") var fNacimiento: Date = Date.now.timeIntervalSinceReferenceDate
-    /*var fNacimiento: Date{
-        set{
-            storedfNacimiento = newValue.timeIntervalSinceReferenceDate
-        }
-        get{
-            return Date(timeIntervalSinceReferenceDate: storedfNacimiento)
-        }
-    }*/
+    @AppStorage("fNacimiento") var storedFNacimiento = Date().timeIntervalSinceReferenceDate // Storing as TimeInterval
+    
     @AppStorage("vip") var esVIP: Bool = false
     @AppStorage("recibeOferta") var recibeOfertas: Bool = false
     @State var cuentaVistaModelo: CuentaVistaModelo
     
+    @State private var fNacimiento = Date() // Using State for binding
     
     var body: some View {
         VStack{
@@ -39,8 +32,7 @@ struct VistaCuenta: View {
                         TextField("Nombre", text: $nombre).disableAutocorrection(true)
                         TextField("Apellido", text: $apellido).disableAutocorrection(true)
                         TextField("Email", text: $email).disableAutocorrection(true)
-                        //DatePicker("Fecha de nacimiento", selection: $fNacimiento, displayedComponents: .date)
-                        
+                        DatePicker("Fecha de nacimiento", selection: $fNacimiento, displayedComponents: .date)
                     }
                     Section("Configuración") {
                         Toggle("Cliente VIP", isOn: $esVIP)
@@ -48,10 +40,7 @@ struct VistaCuenta: View {
 
                     }
                     Button("Guardar cambios", action: {
-                        //cuentaVistaModelo = CuentaVistaModelo(nombre: nombre, apellido: apellido,email: email, fNacimiento: fNacimiento, esVIP: esVIP, recibeOfertas: recibeOfertas)
-                        //cuentaVistaModelo.leerArchivo()
-                        //guardar.toggle()
-                        //cuentaVistaModelo.imprimirNombre()
+                        cuentaVistaModelo = CuentaVistaModelo(nombre: nombre, apellido: apellido,email: email, fNacimiento: fNacimiento, esVIP: esVIP, recibeOfertas: recibeOfertas)
                     })
                 
                 }
@@ -60,6 +49,8 @@ struct VistaCuenta: View {
         }
     }
 }
+
+
 
 
 

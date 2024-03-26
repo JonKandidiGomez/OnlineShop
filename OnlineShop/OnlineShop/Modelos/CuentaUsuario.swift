@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CuentaUsuario {
+class CuentaUsuario: Codable {
     
     var nombre: String
     var apellido: String
