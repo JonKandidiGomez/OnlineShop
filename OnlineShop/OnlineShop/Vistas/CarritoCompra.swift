@@ -6,35 +6,24 @@
 //
 
 
-/*import SwiftUI
+import SwiftUI
+import FirebaseFirestore
 import FirebaseCore
 
+struct CarritoCompra: View {
+  @FirestoreQuery(
+    collectionPath: "productos",
+    predicates: [.where("done", isEqualTo: false)]
+  ) var productos: [Producto]
 
-class AppDelegate: NSObject, UIApplicationDelegate {
-  func application(_ application: UIApplication,
-                   didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-    FirebaseApp.configure()
-
-    return true
-  }
-}
-
-@main
-struct YourApp: App {
-  // register app delegate for Firebase setup
-  @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-
-
-  var body: some Scene {
-    WindowGroup {
-      NavigationView {
-        CarritoCompra()
+  var body: some View {
+      List(productos) { producto in
+          Text(producto.title)
       }
-    }
   }
 }
 
 #Preview {
     CarritoCompra()
 }
-*/
+

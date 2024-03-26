@@ -24,7 +24,7 @@ struct ContentView: View {
                 VistaCuenta(nombre: "",
                             apellido: "",
                             email: "",
-                            fNacimiento: Date.now,
+                            //fNacimiento: Date.now,
                             esVIP: false,
                             recibeOfertas: false,
                              cuentaVistaModelo: CuentaVistaModelo())
@@ -32,7 +32,7 @@ struct ContentView: View {
                         Image(systemName: "person.fill").font(.system(size:250)).symbolRenderingMode(.multicolor)
                         Text("Cuenta")
                     }
-                //CarritoCompra()
+                CarritoCompra()
                     .badge(1)
                     .tabItem {
                         Image(systemName: "cart.fill").font(.system(size: 250))
