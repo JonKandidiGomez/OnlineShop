@@ -13,6 +13,7 @@ struct OnlineShopApp: App {
     
     init() {
         FirebaseApp.configure()
+        print("Hola ya inicie")
     }
     
     var body: some Scene {

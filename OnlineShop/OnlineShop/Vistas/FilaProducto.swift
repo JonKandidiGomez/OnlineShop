@@ -36,22 +36,11 @@ struct FilaProducto: View {
         }
         .sheet(isPresented: $enseniarPopUp) {
             // Pop-up content view
-            PopUpView(producto: producto)
+            VistaCompra(producto: producto)
         }
     }
 }
-
-struct PopUpView: View {
-    var producto: Producto
-    var body: some View {
-        // Customize your pop-up view here
-        Text(producto.title)
-            .padding()
-            .background(Color.white)
-            .cornerRadius(10)
-    }
-}
-
+/*
  struct FilaProducto: View {
      @State var showPopUp: Bool = false // State variable to track pop-up visibility
      var producto: Producto

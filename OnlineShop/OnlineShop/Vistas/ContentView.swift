@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var productoConexion = ProductoConexion()
+    
     var body: some View {
         VStack {
             TabView {
@@ -28,7 +31,7 @@ struct ContentView: View {
                         Text("Cuenta")
                     }
                 CarritoCompra()
-                    .badge(1)
+                    .badge("\(productoConexion.productos.count)")
                     .tabItem {
                         Image(systemName: "cart.fill").font(.system(size: 250))
                             .symbolRenderingMode(.multicolor)

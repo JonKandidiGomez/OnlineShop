@@ -1,52 +1,59 @@
-//
-//  CarritoCompra.swift
-//  OnlineShop
-//
-//  Created by  on 4/3/24.
-//
 
 
 import SwiftUI
+
 struct CarritoCompra: View {
-    @ObservedObject var catalogo: ProductoViewModel = ProductoViewModel()
+    @ObservedObject var productoConexion = ProductoConexion()
+
+    var totalPrice: Double {
+        productoConexion.productos.reduce(0) { $0 + $1.price }
+    }
+
     var body: some View {
         VStack {
-            NavigationView {
-                List {
-                    ForEach(catalogo.catalogo) { producto in
-                        FilaProducto(producto: producto).onTapGesture {
-                            print(producto.title)
+            if productoConexion.productos.isEmpty {
+                Text("Cargando...")
+            } else {
+                ScrollView {
+                    VStack(spacing: 20) {
+                        ForEach(productoConexion.productos, id: \.id) { producto in
+                            HStack {
+                                AsyncImage(url: URL(string: producto.image)) { image in
+                                    image.resizable().scaledToFit()
+                                } placeholder: {
+                                }
+                                .padding(.all, 20)
+
+                                VStack(alignment: .leading, spacing: 5) {
+                                    Text(producto.title)
+                                    Text("$\(String(format: "%.2f", producto.price))")
+                                        .foregroundStyle(.gray)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .frame(height: 120)
                         }
                     }
+                    .padding()
                 }
-                .navigationTitle("Carrito")
             }
-            Button((String("producto.price") + "\u{20AC}" + " - Pagar"), action: {
-                
-            }).padding()
-                .foregroundColor(.white)
-                .background(.purple)
-                .cornerRadius(10)
-                .font(.system(size: 20))
-                .fontWeight(.semibold)
-        }.padding(.bottom, 25)
+
+            Button(action: {
+            }) {
+                Text("Precio total: $\(String(format: "%.2f", totalPrice))")
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.purple)
+                    .cornerRadius(10)
+                    .font(.system(size: 20))
+                    .fontWeight(.semibold)
+            }
+            .padding()
+            .disabled(productoConexion.productos.isEmpty)
+        }
     }
-import SwiftUI
-import FirebaseFirestore
-import FirebaseCore
-
-struct CarritoCompra: View {
-  @FirestoreQuery(
-    collectionPath: "productos",
-    predicates: [.where("done", isEqualTo: false)]
-  ) var productos: [Producto]
-
-  var body: some View {
-      List(productos) { producto in
-          Text(producto.title)
-      }
-  }
 }
+
 
 #Preview {
     CarritoCompra()
